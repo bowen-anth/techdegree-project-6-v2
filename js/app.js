@@ -1,3 +1,5 @@
+//test3
+
 let missed = 0;
 let overlay = document.querySelector('#overlay');
 let phrase = document.querySelector('#phrase');
