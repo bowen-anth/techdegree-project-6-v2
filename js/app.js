@@ -1,5 +1,5 @@
-//test3
-
+let liClassNameLetter = document.querySelectorAll('li.letter');
+let liClassNameShow = document.querySelectorAll('li.show');
 let missed = 0;
 let overlay = document.querySelector('#overlay');
 let phrase = document.querySelector('#phrase');
@@ -28,12 +28,19 @@ let addPhraseToDisplay = arr => {
 // check if a letter is in the phrase
 
 let checkLetter = button => {
-
+    //store li elements here
+    // let li = ;
 }
 
 // check if the game has been won or lost
 
 let checkWin = () => {
+    
+    if (liClassNameShow = liClassNameLetter) {
+        overlay.className = 'win';
+        overlay.textContent = 'You Won!';
+        overlay.style.display = 'flex';
+    }
 
 }
 
@@ -42,6 +49,7 @@ let checkWin = () => {
 startButton.addEventListener('click', () => {
     overlay.style.display = 'none';
     console.log('test');
+    startButton.className = 'chosen';
 });
 
 // listen for the onscreen keyboard to be clicked
