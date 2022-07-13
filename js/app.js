@@ -1,3 +1,5 @@
+let buttonParameter = document.querySelector('button');
+let startOverlay = document.querySelector('h2.title');
 let liClassNameLetter = document.querySelectorAll('li.letter');
 let liClassNameShow = document.querySelectorAll('li.show');
 let missed = 0;
@@ -29,6 +31,17 @@ let addPhraseToDisplay = arr => {
 
 let checkLetter = button => {
     //store li elements here
+    let checkLetter = document.querySelectorAll('li');
+    let match = 0;
+
+    for (let i = 0; i < checkLetter.length; i++) {
+        if (buttonParameter.textContent == checkLetter[i]) {
+            checkLetter[i].className = 'show';
+            match = buttonParameter.textContent;
+        }
+        return match;
+    }
+
     // let li = ;
 }
 
@@ -36,9 +49,14 @@ let checkLetter = button => {
 
 let checkWin = () => {
     
-    if (liClassNameShow = liClassNameLetter) {
+    if (liClassNameShow.length = liClassNameLetter.length) {
         overlay.className = 'win';
-        overlay.textContent = 'You Won!';
+        startOverlay.textContent = 'You Won!';
+        overlay.style.display = 'flex';
+    }
+    else if (missed > 4) {
+        overlay.className = 'lose';
+        startOverlay.textConent ='You Lost!';
         overlay.style.display = 'flex';
     }
 
