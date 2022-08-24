@@ -12,30 +12,41 @@ let phrases = [
     'i have spoken',
     'never tell me the odds'
 ];
+let chosenPhrase = phrases[Math.floor(Math.random() * phrases.length)];
 let qwerty = document.querySelector('#qwerty');
 let startButton = document.querySelector('.btn__reset');
 
 // return a random phrase from an array
 
 let getRandomPhraseAsArray = arr => {
-        return phrases[Math.floor(Math.random() * phrases.length)];
+        return phrases[i];
 }
 
 // adds the letters of a string to the display
 
 let addPhraseToDisplay = arr => {
-
+    for (let i = 0; i < chosenPhrase.length; i++) {
+        let listLi = [
+            chosenPhrase[i]
+        ];
+        listLi.append(chosenPhrase);
+    }
+    if (listLi) {
+        listLi.className = 'letter';
+    }
+    else {
+        listLi.className = 'space';
+    }
 }
 
 // check if a letter is in the phrase
 
 let checkLetter = button => {
-    //store li elements here
     let checkLetter = document.querySelectorAll('li');
-    let match = 0;
+    let match = null;
 
     for (let i = 0; i < checkLetter.length; i++) {
-        if (buttonParameter.textContent == checkLetter[i]) {
+        if (buttonParameter.textContent == checkLetter[i].textContent) {
             checkLetter[i].className = 'show';
             match = buttonParameter.textContent;
         }
@@ -73,5 +84,10 @@ startButton.addEventListener('click', () => {
 // listen for the onscreen keyboard to be clicked
 
 qwerty.addEventListener('click', e => {
+    if (buttonParameter.className != 'chosen' && buttonParameter.click()) {
+        buttonParameter.className = 'chosen';
+        let letter = checkLetter();
+    }
 
+    e.stopPropagation();
 });
