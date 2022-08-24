@@ -5,6 +5,7 @@ let liClassNameShow = document.querySelectorAll('li.show');
 let missed = 0;
 let overlay = document.querySelector('#overlay');
 let phrase = document.querySelector('#phrase');
+let phraseUL = phrase.querySelector('ul');
 let phrases = [
     'i can bring you in warm or i can bring you in cold',
     'maybe the force be with you',
@@ -19,26 +20,19 @@ let startButton = document.querySelector('.btn__reset');
 // return a random phrase from an array
 
 let getRandomPhraseAsArray = arr => {
-        return phrases[i];
+        arr[Math.floor(Math.random() * phrases.length)];
 }
 
 // adds the letters of a string to the display
 
 let addPhraseToDisplay = arr => {
-    for (let i = 0; i < chosenPhrase.length; i++) {
-        let listLi = [
-            chosenPhrase[i]
-        ];
-        listLi.append(chosenPhrase);
-    }
-    if (listLi) {
-        listLi.className = 'letter';
-    }
-    else {
-        listLi.className = 'space';
+    for (let i = 0; i < arr.length; i++) {
+        let LI = document.createElement('li');
+        LI.className = arr[i] !== " " ? "letter" : "space";
+        LI.textContent = arr[i];
+        phraseUL.append(LI);
     }
 }
-
 // check if a letter is in the phrase
 
 let checkLetter = button => {
@@ -90,4 +84,4 @@ qwerty.addEventListener('click', e => {
     }
 
     e.stopPropagation();
-});
+})
