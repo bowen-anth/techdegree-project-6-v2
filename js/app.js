@@ -21,6 +21,7 @@ let startButton = document.querySelector('.btn__reset');
 
 let getRandomPhraseAsArray = arr => {
         arr[Math.floor(Math.random() * phrases.length)];
+        return;
 }
 
 // adds the letters of a string to the display
@@ -33,6 +34,9 @@ let addPhraseToDisplay = arr => {
         phraseUL.append(LI);
     }
 }
+
+addPhraseToDisplay(getRandomPhraseAsArray(phrases));
+
 // check if a letter is in the phrase
 
 let checkLetter = button => {
@@ -85,3 +89,4 @@ qwerty.addEventListener('click', e => {
 
     e.stopPropagation();
 })
+
